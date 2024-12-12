@@ -1,0 +1,60 @@
+import math
+
+def main():
+    while True:
+        try:
+            # Ввод двух чисел
+            num1 = float(input("Введите первое число: "))
+            num2 = float(input("Введите второе число: "))
+
+            # Выбор операции
+            print("\nВыберите операцию:")
+            print("1: Сложение")
+            print("2: Вычитание")
+            print("3: Умножение")
+            print("4: Деление")
+            print("5: Возведение в степень")
+            print("6: Извлечение корня (только для первого числа)")
+
+            choice = input("Введите номер операции (1-6): ")
+
+            # Выполнение выбранной операции
+            if choice == "1":
+                result = num1 + num2
+                print(f"Результат сложения: {result}")
+            elif choice == "2":
+                result = num1 - num2
+                print(f"Результат вычитания: {result}")
+            elif choice == "3":
+                result = num1 * num2
+                print(f"Результат умножения: {result}")
+            elif choice == "4":
+                if num2 == 0:
+                    print("Ошибка: деление на ноль невозможно.")
+                else:
+                    result = num1 / num2
+                    print(f"Результат деления: {result}")
+            elif choice == "5":
+                result = num1 ** num2
+                print(f"Результат возведения в степень: {result}")
+            elif choice == "6":
+                if num1 < 0:
+                    print("Ошибка: невозможно извлечь корень из отрицательного числа.")
+                else:
+                    result = math.sqrt(num1)
+                    print(f"Результат извлечения корня: {result}")
+            else:
+                print("Некорректный выбор операции. Попробуйте снова.")
+
+        except ValueError:
+            print("Ошибка ввода. Пожалуйста, вводите только числа.")
+
+        # Проверка, хочет ли пользователь выйти
+        again = input("\nХотите выполнить ещё одну операцию? (да/нет): ")
+        if again.lower() != 'да':
+            print("Программа завершена.")
+            break
+
+if __name__ == "__main__":
+    main()
+
